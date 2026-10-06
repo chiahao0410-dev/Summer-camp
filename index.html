@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244b3c">
+  <title>叢林探索，出發囉！｜夏令營兩天一夜</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --forest: #244b3c;
+      --moss: #57745a;
+      --sun: #edb85f;
+      --paper: #f7f3e9;
+      --ink: #26372e;
+      --muted: #617066;
+      --line: #dce2d6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .page { width: min(100% - 32px, 760px); margin: 0 auto; padding: 24px 0 48px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      padding: 34px 25px 30px;
+      color: #fffdf5;
+      background: linear-gradient(145deg, #315b48 0%, #244b3c 67%, #1c3d33 100%);
+      box-shadow: 0 12px 30px #244b3c20;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid #ffffff25; border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 230px; height: 230px; right: -82px; top: -115px; }
+    .hero::after { width: 155px; height: 155px; right: -43px; top: -77px; }
+    .eyebrow { position: relative; z-index: 1; margin: 0 0 8px; color: #f4d99f; font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+    h1 { position: relative; z-index: 1; margin: 0; font-size: clamp(30px, 8vw, 43px); line-height: 1.25; letter-spacing: .04em; }
+    .hero-note { position: relative; z-index: 1; margin: 13px 0 0; max-width: 30em; color: #e8eee6; font-size: 16px; }
+    .audience { display: flex; align-items: flex-start; gap: 12px; margin: 18px 0 22px; padding: 15px 16px; border: 1px solid #eadcb9; border-radius: 16px; background: #fffaf0; }
+    .audience-mark { flex: 0 0 34px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: #f4e6c5; color: var(--forest); font-size: 18px; }
+    .audience strong { display: block; color: var(--forest); font-size: 15px; }
+    .audience p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+    .day { margin-top: 26px; }
+    .day-heading { display: flex; align-items: center; gap: 12px; margin: 0 0 13px; }
+    .day-number { display: grid; flex: 0 0 48px; place-items: center; width: 48px; height: 48px; border-radius: 15px 15px 15px 5px; background: var(--forest); color: #fff; font-size: 14px; font-weight: 800; letter-spacing: .06em; }
+    .day-heading h2 { margin: 0; color: var(--forest); font-size: 23px; line-height: 1.25; }
+    .day-heading p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
+    .schedule { position: relative; display: grid; gap: 11px; padding-left: 17px; }
+    .schedule::before { content: ""; position: absolute; top: 14px; bottom: 14px; left: 4px; width: 2px; background: var(--line); }
+    .activity { position: relative; padding: 15px 15px 14px; border: 1px solid #e5e7de; border-radius: 17px; background: #fffefa; box-shadow: 0 4px 12px #26372e08; }
+    .activity::before { content: ""; position: absolute; top: 21px; left: -18px; width: 10px; height: 10px; border: 3px solid var(--paper); border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 1px #d2a54f; }
+    .activity-top { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; margin-bottom: 4px; }
+    .time { color: #9a6421; font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .place { color: var(--muted); font-size: 13px; }
+    .place::before { content: "・"; color: #a9b2a7; }
+    .activity h3 { margin: 0; color: var(--forest); font-size: 18px; line-height: 1.45; }
+    .activity p { margin: 4px 0 0; color: #526158; font-size: 15px; line-height: 1.6; }
+    .overnight { display: flex; align-items: center; gap: 9px; margin: 18px 0 0 17px; padding: 11px 14px; border: 1px dashed #bdcbbb; border-radius: 13px; color: var(--forest); font-size: 14px; font-weight: 700; background: #eef2e9; }
+    .overnight span { color: #b0782b; font-size: 18px; }
+    footer { margin-top: 30px; padding-top: 17px; border-top: 1px solid #dfe3d8; color: var(--muted); text-align: center; font-size: 13px; }
+    footer strong { color: var(--forest); }
+    @media (min-width: 600px) {
+      .page { padding-top: 38px; }
+      .hero { padding: 42px 40px 36px; }
+      .activity { padding: 17px 20px 16px; }
+      .schedule { gap: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">嗨，小小探險家！歡迎來玩</p>
+      <h1>叢林探索，出發囉！</h1>
+      <p class="hero-note">跟朋友一起走進綠意叢林，闖關、觀察自然，展開兩天一夜的冒險！</p>
+    </header>
+
+    <section class="audience" aria-label="招收對象">
+      <div class="audience-mark" aria-hidden="true">✦</div>
+      <div>
+        <strong>營隊招收對象</strong>
+        <p>國小三年級到六年級兒童</p>
+      </div>
+    </section>
+
+    <section class="day" aria-labelledby="day-one">
+      <div class="day-heading">
+        <div class="day-number">DAY 01</div>
+        <div><h2 id="day-one">第一天｜集合出發</h2><p>認識夥伴，打開五感探索營地</p></div>
+      </div>
+      <div class="schedule">
+        <article class="activity">
+          <div class="activity-top"><time class="time">09:00–09:40</time><span class="place">營地入口廣場</span></div>
+          <h3>報到集合・破冰任務</h3>
+          <p>領取名牌與小隊手冊，透過趣味任務記住新朋友的名字。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">09:40–11:30</time><span class="place">森林步道</span></div>
+          <h3>森林定向大挑戰</h3>
+          <p>小隊合作尋找地圖上的標記，邊走邊認識沿途植物與自然線索。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">11:30–13:00</time><span class="place">營地餐廳</span></div>
+          <h3>午餐時間・補充體力</h3>
+          <p>一起享用午餐、整理裝備，為下午的活動養足精神。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">13:00–15:00</time><span class="place">草地活動區</span></div>
+          <h3>小隊闖關運動會</h3>
+          <p>接力、合作搬運與默契挑戰，每個人都能找到自己的隊伍角色。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">15:20–17:00</time><span class="place">自然教室</span></div>
+          <h3>葉片拓印與自然筆記</h3>
+          <p>挑選落葉進行拓印，觀察葉脈形狀，做成自己的營隊紀念頁。</p>
+        </article>
+      </div>
+      <div class="overnight"><span aria-hidden="true">☾</span>17:00 後｜盥洗、晚餐與營火分享・夜宿營地</div>
+    </section>
+
+    <section class="day" aria-labelledby="day-two">
+      <div class="day-heading">
+        <div class="day-number">DAY 02</div>
+        <div><h2 id="day-two">第二天｜滿載回憶</h2><p>迎接清晨，把兩天的發現帶回家</p></div>
+      </div>
+      <div class="schedule">
+        <article class="activity">
+          <div class="activity-top"><time class="time">07:00–08:30</time><span class="place">營地周邊步道・餐廳</span></div>
+          <h3>晨間伸展與早餐</h3>
+          <p>用簡單伸展喚醒身體，再和隊友一起享用早餐。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">08:30–10:00</time><span class="place">溪流觀察區</span></div>
+          <h3>溪邊生態觀察</h3>
+          <p>觀察水邊生物與環境線索，用圖畫和文字記下發現。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">10:15–11:45</time><span class="place">多功能教室</span></div>
+          <h3>我的自然小書</h3>
+          <p>把拓印、觀察筆記和新學到的事整理成一本小小成果冊。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">11:45–13:00</time><span class="place">營地餐廳</span></div>
+          <h3>午餐・整理行李</h3>
+          <p>享用午餐並檢查個人物品，準備和營地道別。</p>
+        </article>
+        <article class="activity">
+          <div class="activity-top"><time class="time">13:00–14:00</time><span class="place">草地活動區</span></div>
+          <h3>小隊成果分享・歡樂收營</h3>
+          <p>分享最喜歡的活動與新朋友，拍下合照後集合返家。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer><strong>活動時間與地點為示意安排</strong><br>實際行程可依營地與當日狀況調整</footer>
+
+    <section aria-labelledby="reminders" style="margin-top:24px;padding:18px 18px 16px;border:1px solid #dce2d6;border-radius:18px;background:#fffefa;color:#26372e;">
+      <h2 id="reminders" style="margin:0 0 10px;color:#244b3c;font-size:20px;">行前提醒</h2>
+      <p style="margin:6px 0;font-size:15px;line-height:1.6;"><strong>天氣：</strong>示意：出發前請確認營地天氣，並依天候準備衣物。</p>
+      <p style="margin:6px 0;font-size:15px;line-height:1.6;"><strong>要帶的東西：</strong>示意：水壺、換洗衣物、盥洗用品、健保卡。</p>
+      <p style="margin:6px 0 0;font-size:15px;line-height:1.6;"><strong>注意事項：</strong>示意：請聽從帶隊老師指引，勿單獨離隊。</p>
+    </section>
+  </main>
+</body>
+</html>
+
+
+
