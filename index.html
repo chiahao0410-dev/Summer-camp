@@ -47,19 +47,21 @@
     .view { padding-top: 18px; animation: arrive .24s ease-out; }
     .view[hidden] { display: none; }
     @keyframes arrive { from { opacity: .55; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-    .hero { position: relative; overflow: hidden; padding: 30px 23px 25px; border-radius: 26px; color: #fffdf6; background: linear-gradient(145deg, #315b48 0%, var(--forest) 65%, var(--forest-deep) 100%); box-shadow: var(--shadow); }
-    .hero::before, .hero::after { position: absolute; content: ""; pointer-events: none; border: 1px solid #ffffff24; border-radius: 50%; }
-    .hero::before { width: 245px; height: 245px; right: -100px; top: -120px; }
-    .hero::after { width: 165px; height: 165px; right: -59px; top: -79px; }
-    .hero-kicker { position: relative; z-index: 1; margin: 0 0 8px; color: #f7d893; font-size: 14px; font-weight: 900; letter-spacing: .1em; }
-    h1 { position: relative; z-index: 1; margin: 0; font-size: clamp(34px, 9vw, 52px); line-height: 1.22; letter-spacing: .015em; }
-    .hero-copy { position: relative; z-index: 1; max-width: 32em; margin: 13px 0 0; color: #edf3e9; font-size: 17px; }
-    .hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .tag { padding: 6px 11px; border: 1px solid #ffffff38; border-radius: 999px; background: #ffffff12; color: #fffdf6; font-size: 14px; font-weight: 800; }
-    .hero-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 21px; }
+    .hero { overflow: hidden; border: 1px solid #e7e5d9; border-radius: 26px; background: #fffefa; color: var(--forest); box-shadow: var(--shadow); }
+    .hero-visual { position: relative; isolation: isolate; overflow: hidden; }
+    .hero-art { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .hero-heading { position: absolute; z-index: 1; top: 15%; left: 5%; width: 38%; color: var(--forest); }
+    .hero-kicker { margin: 0 0 8px; color: var(--moss); font-size: clamp(11px, 2.8vw, 14px); font-weight: 900; letter-spacing: .04em; }
+    .hero h1 { margin: 0; font-size: clamp(20px, 6.6vw, 38px); line-height: 1.22; letter-spacing: .015em; }
+    .hero-details { padding: 4px 19px 20px; }
+    .hero-copy { max-width: 32em; margin: 10px 0 0; color: var(--muted); font-size: 17px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .tag { padding: 6px 11px; border: 1px solid #e0e7da; border-radius: 999px; background: #eff3e9; color: var(--forest); font-size: 14px; font-weight: 800; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 10px 17px; border: 0; border-radius: 14px; background: var(--sun); color: var(--forest-deep); font-size: 15px; font-weight: 900; text-decoration: none; }
     .button.secondary { border: 1px solid #ffffff55; background: #ffffff12; color: white; }
     .button.green { background: var(--forest); color: white; }
+    .hero .button.secondary { border-color: #c9d3c5; background: transparent; color: var(--forest); }
     .info-grid { display: grid; grid-template-columns: 1fr; gap: 11px; margin-top: 14px; }
     .info-card { display: flex; align-items: flex-start; gap: 12px; padding: 15px; border: 1px solid var(--line); border-radius: 17px; background: var(--card); }
     .info-icon { display: grid; flex: 0 0 38px; place-items: center; width: 38px; height: 38px; border-radius: 13px; background: var(--leaf); font-size: 19px; }
@@ -103,7 +105,10 @@
     footer { margin-top: 26px; padding: 16px 4px 0; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 13px; }
     @media (min-width: 620px) {
       .shell { padding-top: 24px; }
-      .hero { padding: 42px 40px 36px; }
+      .hero-heading { top: 17%; left: 6%; width: 38%; }
+      .hero-kicker { font-size: 16px; }
+      .hero h1 { font-size: clamp(44px, 5.5vw, 60px); }
+      .hero-details { padding: 0 30px 26px; }
       .info-grid { grid-template-columns: repeat(3, 1fr); }
       .day-block { padding: 19px; }
       .form-card { padding: 24px; }
@@ -131,16 +136,23 @@
     <main id="main-content">
       <section class="view" id="page-home" role="tabpanel" aria-labelledby="tab-home" data-page-view="home">
         <div class="hero">
-          <p class="hero-kicker">嗨，小小探險家！歡迎來玩</p>
-          <h1>叢林探索，<br>出發囉！</h1>
-          <p class="hero-copy">背上小背包，和新朋友一起走進綠意裡。用兩天一夜的時間，闖關、觀察自然，收藏一段勇敢又好玩的夏日回憶。</p>
-          <div class="hero-tags">
-            <span class="tag">招收對象｜國小三至六年級</span>
-            <span class="tag">兩天一夜・戶外探索</span>
+          <div class="hero-visual">
+            <img class="hero-art" src="images/cover.webp" alt="三位小小探險家在叢林裡看地圖、觀察葉片" width="1200" height="800" fetchpriority="high">
+            <div class="hero-heading">
+              <p class="hero-kicker">嗨，小小探險家！</p>
+              <h1>叢林探索，<br>出發囉！</h1>
+            </div>
           </div>
-          <div class="hero-actions">
-            <button class="button" type="button" data-page-target="plan">看看冒險行程　→</button>
-            <button class="button secondary" type="button" data-page-target="signup">前往報名</button>
+          <div class="hero-details">
+            <p class="hero-copy">背上小背包，和新朋友一起走進綠意裡。用兩天一夜的時間，闖關、觀察自然，收藏一段勇敢又好玩的夏日回憶。</p>
+            <div class="hero-tags">
+              <span class="tag">招收對象｜國小三至六年級</span>
+              <span class="tag">兩天一夜・戶外探索</span>
+            </div>
+            <div class="hero-actions">
+              <button class="button green" type="button" data-page-target="plan">看看冒險行程　→</button>
+              <button class="button secondary" type="button" data-page-target="signup">前往報名</button>
+            </div>
           </div>
         </div>
 
@@ -239,3 +251,5 @@
   </script>
 </body>
 </html>
+
+
